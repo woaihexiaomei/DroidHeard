@@ -1,14 +1,14 @@
 package com.qiyu.ui;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushManager;
-import com.qiyu.droidheard.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
+import cn.jpush.android.api.JPushInterface;
+
+import com.qiyu.droidheard.R;
 
 public class MainActivity extends Activity{
 
@@ -20,7 +20,6 @@ public class MainActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
 		
-		
 		btn = (Button) findViewById(R.id.btn);
 		
 		btn.setOnClickListener(new OnClickListener() {
@@ -28,9 +27,8 @@ public class MainActivity extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-		
-				PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "{HFno9tx9U6EOEThmuvubRvVj}");		
 				
+				JPushInterface.init(getApplicationContext());
 			}
 		});
 		

@@ -1,6 +1,7 @@
 package com.qiyu.ui;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,11 +15,15 @@ public class MainActivity extends Activity{
 
 	Button btn;
 	
+	Context sInstance;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
+		
+		sInstance = this;
 		
 		btn = (Button) findViewById(R.id.btn);
 		
@@ -28,7 +33,7 @@ public class MainActivity extends Activity{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				
-				JPushInterface.init(getApplicationContext());
+				JPushInterface.init(sInstance);
 			}
 		});
 		
@@ -38,6 +43,23 @@ public class MainActivity extends Activity{
 		
 	}
 	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		
+		JPushInterface.onPause(sInstance);
+	
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+		JPushInterface.onResume(sInstance);
+	
+	}
 	
 	
 }

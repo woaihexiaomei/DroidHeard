@@ -8,6 +8,7 @@
         android:targetSdkVersion="18" />
 
     <application
+        android:name="com.qiyu.util.ExampleApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -56,7 +57,9 @@
         <service
             android:name="cn.jpush.android.service.PushService"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false" 
+            android:process=":wan"
+            >
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTER" />
                 <action android:name="cn.jpush.android.intent.REPORT" />
@@ -70,7 +73,9 @@
         <service
             android:name="cn.jpush.android.service.DaemonService"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true" 
+            android:process=":wan"
+            >
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.DaemonService" />
 
@@ -82,7 +87,9 @@
         <receiver
             android:name="cn.jpush.android.service.PushReceiver"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false"
+            android:process=":wan"
+             >
             <intent-filter android:priority="1000" >
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
                 <!-- Required  显示通知栏 -->
@@ -104,13 +111,17 @@
         <!-- Required SDK核心功能 -->
         <receiver
             android:name="cn.jpush.android.service.AlarmReceiver"
-            android:exported="false" />
+            android:exported="false"
+            android:process=":wan"
+             />
 
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
         <receiver
             android:name="com.qiyu.util.receive.RecordReceive"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false"
+            android:process=":wan"
+             >
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.REGISTRATION" />
                 <!-- Required  用户注册SDK的intent -->

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: C:\\Users\\Administrator\\git\\DroidHeard\\src\\com\\qiyu\\util\\aidl\\RecordInterface.aidl
+ * Original file: C:\\Users\\wan\\git\\DroidHeard\\src\\com\\qiyu\\util\\aidl\\RecordInterface.aidl
  */
 package com.qiyu.util.aidl;
 public interface RecordInterface extends android.os.IInterface
